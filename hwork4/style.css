@@ -1,0 +1,28 @@
+body {
+    background: #a0d487;
+    display: flex;
+    justify-content: center;
+    }
+  #alice-container {
+    width: 90vh;
+    display: grid;
+    place-items: center;
+    grid-template-areas:
+    "a1 a3 "
+    "a4 a2 "
+  }
+  
+  
+  #alice1 { grid-area: a1;  
+     width: 90%;
+    height: auto}
+  #alice2 { grid-area: a2; 
+     width: 90%;
+    height: auto }
+  #alice3 { grid-area: a3; 
+     width: 90%;
+    height: auto }
+  #alice4 { grid-area: a4; 
+     width: 90%;
+    height: auto }
+  
