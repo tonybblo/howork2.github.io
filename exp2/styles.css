@@ -1,0 +1,82 @@
+body { 
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+#game-container {
+  position: relative;
+  width: 600px;  /* 增加容器宽度 */
+  height: 400px; /* 增加容器高度 */
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;  /* 图片高度填满容器 */
+  object-fit: cover; /* 保持图片比例并裁剪超出部分 */
+  border-radius: 10px;
+  display: block;
+}
+
+.button {
+  position: absolute;
+  bottom: 20px; /* 按钮与图片底部的距离 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.message {
+  font-size: 20px;
+  margin: 20px 0;
+  transition: opacity 1s ease;
+}
+
+.loading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6347;
+}
+
+/* 守卫图片容器 */
+.guard-container {
+  position: relative;
+  width: 758px;  /* 守卫图片的宽度 */
+  height: 958px; /* 守卫图片的高度 */
+  margin: 0 auto;
+  display: none;  /* 默认不显示 */
+}
+
+.guard-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持图片的比例并裁剪超出部分 */
+  display: block;
+}
+
+.failure-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1538px;  /* failure图片宽度 */
+  height: 343px;  /* failure图片高度 */
+  object-fit: contain; /* 保证图片比例适合 */
+  opacity: 0.7;  /* 可调整透明度 */
+  display: block;
+}
