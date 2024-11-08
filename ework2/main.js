@@ -32,12 +32,14 @@ async function findTreasureWithPromises() {
   const storyImage = document.getElementById('story-image');
 
   function showSceneImage(imageSrc) {
-    storyImage.src = imageSrc;
-    storyImage.classList.add("scene-image");
-    storyImage.style.display = "block";
+    const img = new Image();
+    img.onload = () => {
+      storyImage.src = imageSrc;
+      storyImage.style.display = "block";
+    };
+    img.src = imageSrc; // 预加载图片
   }
 
-  // 初始线索
   loadingDiv.style.display = 'block';
   messageDiv.textContent = '你在图书馆里寻找线索...';
   showSceneImage("images/library.jpg");
@@ -60,10 +62,8 @@ async function findTreasureWithPromises() {
   async function encounterTempleGuard(location) {
     loadingDiv.style.display = 'block';
     messageDiv.textContent = '你在前往神庙的途中遇到了守卫...';
-    
-    // 显示神庙背景图片和守卫图片
     showSceneImage("images/temple_search.jpg");
-    showGuardImage(); // 在此处始终显示守卫图片并让其左右移动
+    showGuardImage();
 
     try {
       let access = await TreasureMap.encounterTempleGuard(location);
@@ -75,8 +75,7 @@ async function findTreasureWithPromises() {
       messageDiv.textContent = "守卫阻止了你的进入!";
       createNextButton("再次尝试", () => encounterTempleGuard(location));
     }
-    
-    // 在守卫场景结束后移除守卫图片（无论是否成功）
+
     removeGuardImage();
   }
 
@@ -130,9 +129,7 @@ async function findTreasureWithPromises() {
     document.body.appendChild(nextButton);
   }
 
-  // 显示守卫图片并让其左右移动
   function showGuardImage() {
-    // 如果已经存在守卫图片，先移除旧图片
     removeGuardImage();
 
     const guardImage = document.createElement('img');
@@ -142,7 +139,6 @@ async function findTreasureWithPromises() {
     document.getElementById('game-container').appendChild(guardImage);
   }
 
-  // 移除守卫图片
   function removeGuardImage() {
     const guardImage = document.getElementById("guardImage");
     if (guardImage) guardImage.remove();

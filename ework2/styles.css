@@ -64,18 +64,15 @@ body {
   z-index: 10;
 }
 
-/* 守卫图片样式 */
 .guard-image {
-  width: 25%; /* 守卫图片占 1/4 屏幕 */
+  width: 25%;
   position: absolute;
-  top: 50%; /* 垂直居中 */
+  top: 50%;
   transform: translateY(-50%);
   z-index: 15;
-  animation: guardMove 4s infinite alternate; /* 左右移动动画 */
+  animation: guardMove 4s infinite alternate;
 }
 
-/* 左右移动动画 */
 @keyframes guardMove {
   from { left: 0; }
   to { left: 75%; }
-}
