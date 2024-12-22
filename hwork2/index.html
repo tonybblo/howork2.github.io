@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html lang="en-CN">
   <head>
+    <!-- 设置文档字符编码为 UTF-8 -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>图片颜色调节</title>
-
-    <link rel="stylesheet" href="styles.css">
     
+    <!-- 设置视口，使页面在移动设备上正确显示 -->
+    <meta name="viewport" content="width=device-width">
+    
+    <!-- 页面标题 -->
+    <title>图片亮度调节</title>
+    
+    <!-- 链接到外部样式表 -->
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <h1>图片颜色调节</h1>
-    <p>拖动图片亮度调节滑动条，即可改变图片颜色</p>
-    <div class="full-img">
-      <img class="displayed-img" src="images/1.jpg" alt="Closeup of a human eye">
-      <div class="brightness-control">
-        <label for="brightness">亮度调节:</label>
-        <input type="range" id="brightness" min="0" max="200" value="100">
-        <span class="brightness-value">100%</span>
+    <!-- 主容器 -->
+    <div class="container">
+      <!-- 页面标题 -->
+      <h1 class="title">图片亮度调节</h1>
+      <!-- 副标题/说明文字 -->
+      <p class="subtitle">拖动滑块即可调节图片亮度</p>
+      
+      <!-- 画廊容器 -->
+      <div class="gallery-container">
+        <!-- 主图片显示区域 -->
+        <div class="full-img">
+          <!-- 主显示图片 
+               - src 指定图片源
+               - alt 提供图片描述，用于无法显示图片时或屏幕阅读器 
+          -->
+          <img class="displayed-img" src="images/1.jpg" alt="Closeup of a human eye">
+          
+          <!-- 亮度控制-->
+          <div class="brightness-control">
+            <!-- 滑块名-->
+            <label for="brightness">亮度调节:</label>
+            
+            <!-- 亮度调节滑块
+                  type="range" 创建一个滑块控件，
+                  min="0" （完全黑），max="200" （2倍亮度），默认值100（正常亮度）
+            -->
+            <input type="range" id="brightness" min="0" max="200" value="100">
+            
+            <!-- 显示当前亮度值 -->
+            <span class="brightness-value">100%</span>
+          </div>
+        </div>
+
+        <!-- 缩略图容器
+             - 将通过 JavaScript 动态填充缩略图
+             - 用户可以点击缩略图切换主显示图片
+        -->
+        <div class="thumb-bar"></div>
       </div>
     </div>
 
-    <div class="thumb-bar">
-    </div>
+    <!-- 引入 JavaScript 文件
+         - 放在 body 末尾以确保 DOM 加载完成
+         - 处理图片切换和亮度调节功能
+    -->
     <script src="js.js"></script>
   </body>
 </html>
