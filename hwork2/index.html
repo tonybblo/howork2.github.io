@@ -11,16 +11,17 @@
 
   <body>
     <h1>图片颜色调节</h1>
-    <p>点击图片左上角的按钮，即可改变图片颜色</p>
+    <p>拖动图片亮度调节滑动条，即可改变图片颜色</p>
     <div class="full-img">
       <img class="displayed-img" src="images/1.jpg" alt="Closeup of a human eye">
-      <div class="overlay"></div>
-      <button class="dark">变黑</button>
+      <div class="brightness-control">
+        <label for="brightness">亮度调节:</label>
+        <input type="range" id="brightness" min="0" max="200" value="100">
+        <span class="brightness-value">100%</span>
+      </div>
     </div>
 
     <div class="thumb-bar">
-
-
     </div>
     <script src="js.js"></script>
   </body>
